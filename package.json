@@ -29,5 +29,14 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ]
-  }
+  },
+  "start:prod": {
+    "command": "node index.js",
+    "env": {
+      "NODE_PATH": "/",
+      "NODE_ENV": "production",
+      "PORT": 8080,
+      "BROWSER": "none"
+    }
+  },,
 }
