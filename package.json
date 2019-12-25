@@ -2,13 +2,14 @@
   "name": "library",
   "version": "1.0.0",
   "description": "Library API",
+  "engines": {
+    "node": "10.16.3",
+    "npm": "6.4.1"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "jest"
-  },
-  "engines": {
-    "node": "10.16.3"
   },
   "author": "AV",
   "license": "ISC",
