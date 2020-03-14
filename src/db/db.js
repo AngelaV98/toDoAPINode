@@ -1,13 +1,14 @@
 const mongoose = require("mongoose");
 
+const {
+  db: { url }
+} = require("../config/config");
+
 const connect = () => {
-  return mongoose.connect(
-    "mongodb+srv://user:root@library-6jjob.mongodb.net/library?retryWrites=true&w=majority",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true
-    }
-  );
+  return mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
 };
 
 connect()

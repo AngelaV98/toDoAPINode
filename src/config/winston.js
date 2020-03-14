@@ -2,7 +2,6 @@ const winston = require("winston");
 
 const root = process.env.INIT_CWD;
 
-console.log(root)
 const options = {
   file: {
     level: "info",
