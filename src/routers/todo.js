@@ -1,10 +1,10 @@
-const express = require("express");
-const ToDo = require("../db/models/ToDo");
+const express = require('express');
+const ToDo = require('../db/models/ToDo');
 
 const router = express.Router();
 
 // Get todos
-router.get("/", async function(req, res) {
+router.get('/', async function(req, res) {
   try {
     const todos = await ToDo.find({});
     res.send(todos);
@@ -14,13 +14,13 @@ router.get("/", async function(req, res) {
 });
 
 // Add todo
-router.post("/", async function(req, res) {
-  const {label, done } = req.body.todo;
+router.post('/', async function(req, res) {
+  const { label, done } = req.body.todo;
 
   try {
     const todo = await ToDo.create({
       label,
-      done
+      done,
     });
     res.send(todo);
   } catch (err) {
@@ -28,21 +28,25 @@ router.post("/", async function(req, res) {
   }
 });
 
-router.put("/", async function(req, res) {
+router.put('/', async function(req, res) {
   const { _id, label, done } = req.body.todo;
   try {
-  console.log(_id,label,done)
-    const todo = await ToDo.findByIdAndUpdate(_id, {label,done}, { new: true });
+    console.log(_id, label, done);
+    const todo = await ToDo.findByIdAndUpdate(
+      _id,
+      { label, done },
+      { new: true }
+    );
     res.send(todo);
   } catch (err) {
     res.status(404).send(err);
   }
 });
 
-router.delete("/:id", async function(req, res) {
+router.delete('/:id', async function(req, res) {
   const { id } = req.params;
   try {
-    const todo = await ToDo.findByIdAndRemove({_id: id});
+    const todo = await ToDo.findByIdAndRemove({ _id: id });
     res.send(todo);
   } catch (err) {
     res.status(404).send(err);
