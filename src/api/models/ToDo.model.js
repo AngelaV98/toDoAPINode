@@ -12,5 +12,5 @@ const ToDoSchema = new mongoose.Schema({
   },
 });
 
-const ToDo = mongoose.model('todos', ToDoSchema);
-module.exports = ToDo;
+const ToDoModel = mongoose.model('todos', ToDoSchema);
+module.exports = ToDoModel;
